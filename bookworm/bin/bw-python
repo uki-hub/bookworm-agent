@@ -1,0 +1,10 @@
+#!/bin/sh
+# Run Python >= 3.9 (python3, else python) with the given arguments; used by bw and the hooks.
+for py in "$BOOKWORM_PYTHON" python3 python; do
+  [ -n "$py" ] || continue
+  if "$py" -c 'import sys; sys.exit(sys.version_info < (3, 9))' >/dev/null 2>&1; then
+    exec "$py" "$@"
+  fi
+done
+echo "bookworm: no Python >= 3.9 found; install one or set BOOKWORM_PYTHON" >&2
+exit 0

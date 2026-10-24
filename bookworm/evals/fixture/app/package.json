@@ -1,0 +1,9 @@
+{
+  "name": "taskboard",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "lint": "node scripts/lint.mjs"
+  }
+}

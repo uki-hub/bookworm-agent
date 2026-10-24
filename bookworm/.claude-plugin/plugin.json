@@ -1,0 +1,8 @@
+{
+  "name": "bookworm",
+  "version": "0.0.2",
+  "description": "Source-backed project knowledge and drift-checked work plans that survive between Claude Code sessions.",
+  "author": { "name": "Bookworm" },
+  "license": "MIT",
+  "keywords": ["knowledge", "context", "planning", "documentation"]
+}

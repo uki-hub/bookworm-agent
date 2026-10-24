@@ -1,0 +1,36 @@
+schema_version: "1.0"
+name: learn
+description: learn writes one source-backed context with a router and overview route, and publishes it.
+tags: [acceptance-2]
+context:
+  scaffold_script: scaffold.sh
+execution:
+  prompt: /bookworm:learn how tasks move between columns and the WIP limit
+  max_turns: 30
+  timeout_seconds: 900
+  allowed_tools: [Read, Glob, Grep, Skill, Bash, Write, Edit, Agent]
+runs: 1
+graders:
+  - type: tool_used
+    name: published
+    tool: Bash
+    input_match: "bw publish"
+    min: 1
+  - type: regex
+    name: overview routes to the context
+    target: { source: file, path: .bookworm/context.md }
+    pattern: 'context/[a-z-]+/[a-z0-9-]+/[a-z0-9-]+-context\.md'
+  - type: tool_used
+    name: no helper source reads
+    tool: Read
+    input_match: 'bw\.py|bwlib'
+    min: 0
+    max: 0
+    arm: both
+  - type: llm
+    name: knowledge accuracy
+    focus: files
+    criteria: >
+      The new context states, citing moveTask/WIP_LIMIT: moving into "doing" is refused when doing already has
+      WIP_LIMIT (3) tasks; moving to other columns is always allowed; changes persist via saveTasks to localStorage;
+      addTask always starts in "todo". It does not claim rules that the code doesn't have.
