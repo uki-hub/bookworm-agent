@@ -13,7 +13,7 @@
 
 **Let the bookworm read your codebase, so your agent doesn't have to.**
 
-Big fullstack project (db, api, app, ML, SAP...)? The bookworm turns it into per-feature context docs, so your agent starts every session already knowing the plot.
+The bookworm turns any project into clear, structured docs, so your agent already knows the plot.
 
 ![version](https://img.shields.io/badge/version-0.0.2-blue) ![status](https://img.shields.io/badge/status-beta-orange) ![license](https://img.shields.io/badge/license-MIT-green) ![python](https://img.shields.io/badge/python-3.9%2B-yellow)
 
