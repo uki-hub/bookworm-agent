@@ -11,19 +11,20 @@
 
 # Bookworm
 
-**Project memory for Claude Code that knows when it's out of date.**
+**Let the bookworm read your codebase, so your agent doesn't have to.**
+
+Big fullstack project (db, api, app, ML, SAP...)? The bookworm turns it into per-feature context docs, so your agent starts every session already knowing the plot.
 
 ![version](https://img.shields.io/badge/version-0.0.2-blue) ![status](https://img.shields.io/badge/status-beta-orange) ![license](https://img.shields.io/badge/license-MIT-green) ![python](https://img.shields.io/badge/python-3.9%2B-yellow)
 
-</div>
+## What the bookworm does
 
-## What it does
-
-- 📚 **Learns** your codebase into source-backed docs, one per feature
-- 🔍 **Detects drift** when code changes under the docs
-- 📝 **Plans** work pinned to the docs it was based on
-- ✅ **Gates** every task: done only when checks pass and docs are refreshed
-- 🔒 **Safe**: never commits, stages, or pushes your code
+- 🗂️ **Reads once**: one doc per feature, vertical slice, with "changing X → open Y" routes
+- 🛡️ **Spots changed pages**: flags docs when the code they describe changes
+- ✍️ **Takes the notes**: built-in skills learn a feature (or the whole repo) into context docs
+- 📏 **Keeps the rules**: plans pin the docs they used; a task is done only when checks pass and docs are refreshed
+- 👥 **Shares the library**: commit `.bookworm/` to your repo and review it in PRs
+- 🔒 **Keeps its paws off your code**: never commits, stages, or pushes it
 
 ## Install
 
@@ -34,7 +35,7 @@
 
 Needs Claude Code ≥ 2.1.275, git, Python ≥ 3.9 (no pip packages).
 
-## Use
+## Feed it
 
 ```text
 /bookworm:init                      set up .bookworm/
@@ -51,3 +52,5 @@ Needs Claude Code ≥ 2.1.275, git, Python ≥ 3.9 (no pip packages).
 ## License
 
 [MIT](LICENSE)
+
+<sub>Named after the childhood favorite, Bookworm Deluxe 🐛📖</sub>
